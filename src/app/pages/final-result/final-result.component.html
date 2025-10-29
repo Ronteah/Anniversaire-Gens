@@ -4,7 +4,7 @@
 
   <div class="final-boxes-container">
     <div class="choice-box festive-box">
-      <h3>Joueur 1 a choisi :</h3>
+      <h3>{{playerChoices[0].playerName}} a choisi :</h3>
       <p class="circuit-name">{{
         getCircuitDetails(playerChoices[0].circuitId)?.name }}</p>
       <p class="option-details">
@@ -14,7 +14,7 @@
     </div>
 
     <div class="choice-box festive-box">
-      <h3>Joueur 2 a choisi :</h3>
+      <h3>{{playerChoices[1].playerName}} a choisi :</h3>
       <p class="circuit-name">{{
         getCircuitDetails(playerChoices[1].circuitId)?.name }}</p>
       <p class="option-details">

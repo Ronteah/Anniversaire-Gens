@@ -29,7 +29,7 @@ export class FinalResultComponent implements OnInit {
       this.resultMessage = "🎉 Félicitations ! Vous avez choisi le MÊME CIRCUIT ! 🎉";
       this.finalChoice = {
         circuit: ALL_CIRCUITS.find(c => c.id === choice1.circuitId),
-        // Pour simplifier, si le circuit est le même, on prend l'option du Joueur 2 (le dernier validé)
+        // Pour simplifier, si le circuit est le même, on prend l'option da Personne 2 (le dernier validé)
         option: choice2
       };
     } else {
@@ -56,11 +56,11 @@ export class FinalResultComponent implements OnInit {
 
     let body = "Les choix des deux destinataires ont été enregistrés :\n\n";
 
-    body += `--- Choix de Clément ---\n`;
+    body += `--- Choix de ${choices[0].playerName} ---\n`;
     body += `Circuit : ${this.getCircuitDetails(choice1.circuitId)?.name}\n`;
     body += `Offre : ${choice1.selectedOption.lapsOrTime} au volant de la ${choice1.selectedOption.description}\n\n`;
 
-    body += `--- Choix de Romain ---\n`;
+    body += `--- Choix de ${choices[1].playerName} ---\n`;
     body += `Circuit : ${this.getCircuitDetails(choice2.circuitId)?.name}\n`;
     body += `Offre : ${choice2.selectedOption.lapsOrTime} au volant de la ${choice2.selectedOption.description}\n\n`;
 

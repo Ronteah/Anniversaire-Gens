@@ -1,12 +1,13 @@
 <div class="mobile-container instruction-page">
-  <h1>Tour du Joueur 2 !</h1>
+  <h1>Au tour de {{player2Name}} !</h1>
   <div class="festive-box">
     <h3>Instructions pour la deuxième personne :</h3>
-    <p>Le Joueur 1 a fait son choix temporaire et a validé. C'est maintenant à
+    <p>{{player1Name}} a fait son choix temporaire et a validé. C'est maintenant
+      à
       vous de jouer !</p>
     <ul>
       <li>Vous allez choisir votre circuit et l'offre associée.</li>
-      <li>Votre sélection sera confrontée à celle du Joueur 1 sur la page
+      <li>Votre sélection sera confrontée à celle de {{player1Name}} sur la page
         finale.</li>
     </ul>
     <p class="reminder">
@@ -15,6 +16,6 @@
   </div>
 
   <button [routerLink]="['/choice/2']">
-    Je suis le Joueur 2, je choisis !
+    Je choisis !
   </button>
 </div>

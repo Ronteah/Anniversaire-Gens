@@ -17,7 +17,7 @@ export interface Circuit {
 }
 
 export interface PlayerChoice {
-  playerName: 'Joueur 1' | 'Joueur 2';
+  playerName: string;
   circuitId: string;
   selectedOption: CarOption;
   isConfirmed: boolean;

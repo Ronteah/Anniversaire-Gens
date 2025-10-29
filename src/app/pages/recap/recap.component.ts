@@ -43,10 +43,10 @@ export class RecapComponent implements OnInit {
     );
 
     if (this.playerNumber === 1) {
-      // Joueur 1 a confirmé -> passe au Joueur 2 (via page instruction)
+      // Personne 1 a confirmé -> passe à la Personne 2 (via page instruction)
       this.router.navigate(['/instruction/2']);
     } else {
-      // Joueur 2 a confirmé -> résultat final
+      // Personne 2 a confirmé -> résultat final
       this.router.navigate(['/final']);
     }
   }

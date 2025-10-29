@@ -10,6 +10,7 @@ import { GiftService } from '../../core/services/gift.service';
 })
 export class CircuitChoiceComponent implements OnInit {
   playerNumber: number = 1;
+  playerName: string = 'Personne';
   circuit1: Circuit = ALL_CIRCUITS[0];
   circuit2: Circuit = ALL_CIRCUITS[1];
 
@@ -23,6 +24,7 @@ export class CircuitChoiceComponent implements OnInit {
     // Récupère le numéro du joueur (1 ou 2) depuis l'URL (ex: /choice/1)
     this.route.paramMap.subscribe(params => {
       this.playerNumber = Number(params.get('player')) || 1;
+      this.playerName = this.giftService.getPlayerName(this.playerNumber);
     });
   }
 
