@@ -60,6 +60,10 @@ button {
   margin-top: $padding-base;
 }
 
+input[type="radio"] {
+  aspect-ratio: 1/1;
+}
+
 /* Animation ou effet pour l'anniversaire (ex: confettis en CSS ou ombre) */
 .festive-box {
   border: 3px solid $primary-color;
