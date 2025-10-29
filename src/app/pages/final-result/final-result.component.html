@@ -1,0 +1,74 @@
+<div class="mobile-container final-page">
+  <h1>Résultat Final des Choix</h1>
+  <p class="summary-message">{{ resultMessage }}</p>
+
+  <div class="final-boxes-container">
+    <div class="choice-box festive-box">
+      <h3>Joueur 1 a choisi :</h3>
+      <p class="circuit-name">{{
+        getCircuitDetails(playerChoices[0].circuitId)?.name }}</p>
+      <p class="option-details">
+        {{ playerChoices[0].selectedOption.lapsOrTime }} | {{
+        playerChoices[0].selectedOption.description }}
+      </p>
+    </div>
+
+    <div class="choice-box festive-box">
+      <h3>Joueur 2 a choisi :</h3>
+      <p class="circuit-name">{{
+        getCircuitDetails(playerChoices[1].circuitId)?.name }}</p>
+      <p class="option-details">
+        {{ playerChoices[1].selectedOption.lapsOrTime }} | {{
+        playerChoices[1].selectedOption.description }}
+      </p>
+    </div>
+  </div>
+
+  <div *ngIf="finalChoice" class="final-decision">
+    <h2>Votre Cadeau Final est :</h2>
+    <div class="festive-box success-box">
+      <h3>{{ finalChoice.circuit?.name }} ({{ finalChoice.circuit?.location
+        }})</h3>
+      <p class="action-next">
+        Félicitations ! Maintenant faut fixer une date bande de zouaves au
+        caramel lààààà hmmmmmmmmmm !
+      </p>
+    </div>
+
+    <button (click)="shareResult()" [routerLink]="['/end']">
+      Valider les choix
+    </button>
+  </div>
+
+  <div *ngIf="!finalChoice" class="finl-decision agreement-needed">
+    <h2>Prochaine Étape :</h2>
+    <p>
+      <strong>
+        Puisque vous avez choisi des circuits différents, vous devez maintenant
+        négocier ensemble pour choisir entre :
+      </strong>
+    </p>
+    <div class="agreement-options">
+      <p>1. {{ getCircuitDetails(playerChoices[0].circuitId)?.name }}</p>
+      <p>2. {{ getCircuitDetails(playerChoices[1].circuitId)?.name }}</p>
+
+      <button [routerLink]="['/instruction/1']">
+        Refaire les choix
+      </button>
+    </div>
+
+    <h2>Sinon :</h2>
+    <p>
+      <strong>
+        Vous ne faites pas le truc ensemble les gars et ça serait dommage !
+        Enfin vous faites ce que vous voulez hein. La moitié de ce texte est
+        écrit par Copilot donc bon...
+      </strong>
+    </p>
+
+    <button (click)="shareResult()" [routerLink]="['/end']">
+      Valider les choix
+    </button>
+  </div>
+
+</div>

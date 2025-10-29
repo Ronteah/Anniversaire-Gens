@@ -1,0 +1,15 @@
+<div class="mobile-container">
+  <h1>Pilote {{ playerNumber }} : Faites votre choix !</h1>
+
+  <form #choiceForm="ngForm" class="circuit-selection">
+    <app-circuit-card
+      [circuit]="circuit1"
+      (circuitChosen)="handleChoice($event.circuitId, $event.option)">
+    </app-circuit-card>
+
+    <app-circuit-card
+      [circuit]="circuit2"
+      (circuitChosen)="handleChoice($event.circuitId, $event.option)">
+    </app-circuit-card>
+  </form>
+</div>

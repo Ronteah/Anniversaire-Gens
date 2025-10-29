@@ -1,0 +1,42 @@
+<div class="circuit-card">
+  <img [src]="circuit.imagePath" [alt]="circuit.name" class="circuit-image"
+    crossorigin="anonymous">
+  <h3>{{ circuit.name }}</h3>
+  <p>📍 Localisation : {{ circuit.location }}</p>
+  <p>{{ circuit.description }}</p>
+
+  <div class="options-list">
+    <h4>Choix de l'offre :</h4>
+    <div *ngFor="let option of circuit.options; let i = index"
+      class="option-item">
+      <input type="radio"
+        [id]="circuit.id + '-' + i"
+        [name]="circuit.id"
+        [value]="i"
+        (change)="onOptionSelected(option)">
+      <label [for]="circuit.id + '-' + i">
+        {{ option.lapsOrTime }} : {{ option.description }}
+        <br>
+        <span *ngIf="option.details" class="details"> ({{ option.details
+          }})</span>
+      </label>
+    </div>
+  </div>
+
+  <button *ngIf="isSelectable" [disabled]="!selectedOption"
+    (click)="selectCircuit()">
+    Choisir ce circuit
+  </button>
+
+  <div class="map-container">
+    <p>Localisation du circuit :</p>
+    <iframe [src]="getSafeUrl(circuit.mapEmbedUrl)"
+      width="100%"
+      height="200"
+      style="border:0;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>

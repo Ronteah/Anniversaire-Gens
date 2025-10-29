@@ -1,0 +1,72 @@
+@import '../../../styles.scss';
+
+.circuit-card {
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  padding: $padding-base;
+  margin-bottom: $padding-base * 2;
+  background-color: white;
+  box-shadow: 0 0 15px rgba($primary-color, 0.3);
+  /* Ombre douce festive */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+  .circuit-image {
+    width: 100%;
+    height: auto;
+    border-radius: $border-radius - 2px;
+    margin-bottom: $padding-base;
+  }
+
+  .map-container {
+    margin-top: $padding-base;
+    padding-top: $padding-base;
+    border-top: 1px dashed #eee;
+  }
+}
+
+.options-list {
+  margin-top: 15px;
+
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+
+    input[type="radio"] {
+      /* Agrandir la cible du clic */
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid $primary-color;
+      border-radius: 50%;
+      margin-right: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked {
+      background-color: $primary-color;
+      border-color: $primary-color;
+
+      /* Point central */
+      &::before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    label {
+      flex-grow: 1;
+      padding: 10px 0;
+    }
+  }
+}

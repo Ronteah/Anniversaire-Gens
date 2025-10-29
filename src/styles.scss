@@ -1,1 +1,185 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+
+$primary-color: #ff4081; // Rose vif
+$secondary-color: #ffd740; // Jaune or
+$background-color: #fce4ec; // Fond très clair et doux
+$text-color: #333;
+$border-radius: 12px;
+$padding-base: 16px;
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  /* Utilise une police festive si tu peux l'intégrer */
+  background-color: $background-color;
+  color: $text-color;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Optimisation Mobile */
+:root {
+  font-size: 16px;
+  /* Taille de base pour la lisibilité */
+}
+
+/* Conteneur principal pour garantir que tout est centré et utilise l'espace mobile */
+.mobile-container {
+  /* Max-width typique pour simuler un grand écran mobile/tablette */
+  margin: 0 auto;
+  min-height: 100vh;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 48px $padding-base;
+}
+
+/* Styles pour le côté festif */
+h1,
+h2 {
+  color: $primary-color;
+  text-align: center;
+}
+
+button {
+  background-color: $secondary-color;
+  color: $text-color;
+  border: solid 2px black;
+  padding: 12px 24px;
+  border-radius: $border-radius;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  /* Boutons pleine largeur pour le mobile */
+  margin-top: $padding-base;
+}
+
+/* Animation ou effet pour l'anniversaire (ex: confettis en CSS ou ombre) */
+.festive-box {
+  border: 3px solid $primary-color;
+  border-radius: $border-radius;
+  padding: $padding-base;
+  margin: $padding-base 0;
+  box-shadow: 0 0 15px rgba($primary-color, 0.5);
+  background-color: #fff8f8;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0.5;
+  }
+}
+
+.confetti-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Base pour les confettis - utilise box-shadow pour simuler de multiples formes */
+  &::before {
+    box-shadow:
+      20vw 10vh 0 0 #ffd740,
+      40vw 30vh 0 0 #ff4081,
+      60vw 50vh 0 0 #40ff81,
+      80vw 70vh 0 0 #4081ff,
+      10vw 90vh 0 0 #ffd740,
+      90vw 20vh 0 0 #ff4081;
+    animation: confetti-fall 15s linear infinite;
+    animation-delay: 0s;
+  }
+
+  &::after {
+    box-shadow:
+      5vw 5vh 0 0 #40ff81,
+      75vw 45vh 0 0 #ffd740,
+      35vw 85vh 0 0 #ff4081,
+      55vw 25vh 0 0 #4081ff;
+    animation: confetti-fall 15s linear infinite;
+    animation-delay: 7.5s;
+    /* Décalage pour un effet continu */
+  }
+
+  $button-depth: 4px;
+
+  .continue-button,
+  .confirm-button {
+    /* Style de base (déjà défini) */
+    background-color: $secondary-color;
+    color: $text-color;
+    padding: 15px 30px;
+    border: none;
+    border-radius: $border-radius;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.1s ease;
+
+    /* Effet 3D initial */
+    box-shadow: 0 $button-depth 0 darken($secondary-color, 20%);
+    transform: translateY(0);
+
+    &:active {
+      /* Lorsqu'on clique (doigt sur l'écran) */
+      box-shadow: 0 1px 0 darken($secondary-color, 20%);
+      transform: translateY($button-depth - 1px);
+      /* Enfoncement */
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      box-shadow: 0 $button-depth 0 #999;
+      cursor: not-allowed;
+    }
+  }
+
+  @keyframes slight-wobble {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-3px) rotate(0.5deg);
+    }
+  }
+
+  .main-title {
+    font-family: 'Georgia', serif;
+    /* Change la police pour un effet plus "cadeau" */
+    font-size: 2.5em;
+    color: $primary-color;
+    text-shadow: 2px 2px 0px $secondary-color;
+
+    /* Animation subtile */
+    animation: slight-wobble 4s ease-in-out infinite;
+  }
+}

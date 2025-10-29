@@ -1,0 +1,35 @@
+<div class="mobile-container recap-page"
+  *ngIf="currentChoice && selectedCircuit">
+  <h1>🎉 Récapitulatif de votre choix {{ playerNumber === 1 ? 'temporaire' :
+    'final' }}</h1>
+
+  <div class="festive-box">
+    <h3>Votre sélection :</h3>
+
+    <img [src]="selectedCircuit.imagePath" [alt]="selectedCircuit.name"
+      class="circuit-image" crossorigin="anonymous">
+
+    <div class="recap-item">
+      <h4>Circuit choisi :</h4>
+      <p>{{ selectedCircuit.name }}</p>
+      <p>Localisation : {{ selectedCircuit.location }}</p>
+    </div>
+
+    <div class="recap-item">
+      <h4>Offre sélectionnée :</h4>
+      <p>{{ currentChoice.selectedOption.lapsOrTime }} au volant de la {{
+        currentChoice.selectedOption.description }}</p>
+      <p *ngIf="currentChoice.selectedOption.details">{{
+        currentChoice.selectedOption.details }}</p>
+    </div>
+  </div>
+
+  <p class="validation-message">
+    Vérifiez bien votre sélection avant de valider.
+  </p>
+
+  <button (click)="confirmAndContinue()" class="confirm-button">
+    {{ playerNumber === 1 ? 'Valider mon choix et passer le téléphone' :
+    'Valider le choix final' }}
+  </button>
+</div>

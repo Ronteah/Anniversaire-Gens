@@ -1,0 +1,36 @@
+.final-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1,
+  h2 {
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+      1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+  }
+
+  .summary-message {
+    font-weight: bold;
+  }
+
+  .agreement-options {
+    p {
+      font-weight: bold;
+    }
+  }
+
+  .final-boxes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    .choice-box {
+      width: 100%;
+    }
+  }
+}
